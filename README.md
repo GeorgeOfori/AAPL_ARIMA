@@ -37,7 +37,11 @@ Applied first-order differencing to remove trend.
 5. Model Identification
 ACF and PACF plots suggested AR(1) and MA(1) → ARIMA(1,1,1)
 
-6. Model Training
+<p align="center">
+  <img src="images/ACF_PACF.png" alt="ACF & PACF plots" width="600"/>
+</p>
+
+7. Model Training
 Fit two models: ARIMA(5,1,2) and ARIMA(1,1,1).
 
 Selected ARIMA(1,1,1) based on lower AIC and simplicity.
