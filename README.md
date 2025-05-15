@@ -17,74 +17,82 @@ This project performs a complete time series analysis and forecasting of Apple I
 ## Workflow Summary
 
 1. Data Collection
-Downloaded AAPL stock data from Yahoo Finance using yfinance.
+   Downloaded AAPL stock data from Yahoo Finance using yfinance.
 
 2. Data Preprocessing
-Focused on the closing price.
+   Focused on the closing price.
 
-Converted dates, sorted values, and cleaned missing data.
+   Converted dates, sorted values, and cleaned missing data.
 
 3. Exploratory Data Analysis
-Line plot to visualize trends.
+   Line plot to visualize trends.
 
-Rolling mean & standard deviation to inspect volatility.
+   Rolling mean & standard deviation to inspect volatility.
 
 4. Stationarity Testing
-Used ADF test to confirm non-stationarity.
+   Used ADF test to confirm non-stationarity.
 
-Applied first-order differencing to remove trend.
+   Applied first-order differencing to remove trend.
 
 5. Model Identification
-ACF and PACF plots suggested AR(1) and MA(1) → ARIMA(1,1,1)
+   ACF and PACF plots suggested AR(1) and MA(1) → ARIMA(1,1,1)
 
-<p align="center">
-  <img src="images/ACF_PACF.png" alt="ACF & PACF plots" width="600"/>
-</p>
+![ACF and PACF plots](images/ACF_PACF_plots.png)
 
 7. Model Training
-Fit two models: ARIMA(5,1,2) and ARIMA(1,1,1).
+   Fit two models: ARIMA(5,1,2) and ARIMA(1,1,1).
 
-Selected ARIMA(1,1,1) based on lower AIC and simplicity.
+   Selected ARIMA(1,1,1) based on lower AIC and simplicity.
+
+  ![SARIMAX_results](images/SARIMAX_results.png)
 
 7. Residual Diagnostics
-Residuals behaved like white noise.
+   Residuals behaved like white noise.
 
-Passed Ljung-Box test (p-value > 0.05).
+  ![Residuals](images/Residual.png)
+   Passed Ljung-Box test (p-value > 0.05).
 
 8. Forecasting
-Forecasted next 30 business days with confidence intervals.
+   Forecasted next 30 business days with confidence intervals.
 
-9. Model Evaluation
-Used RMSE, MAE, and MAPE (NaN due to 0-value handling).
+   ![Forecast](images/forecast.png)
 
-Visual comparison of actual vs predicted.
-
+10. Model Evaluation
+    Used RMSE, and MAE.
 
 ### Performance Metrics
-Metric	Value
-RMSE	21.10
-MAE	18.88
+  Metric	Value
+  
+  RMSE	21.10
+  
+  MAE	 18.88
+  
+
+ Comparison of actual vs predicted.
+![Actual vs Forecasted](images/Actual_vs_forecasted_prices.png)
+
+
 
 
 ### Key Visualizations
 
-AAPL Price Over Time
+  AAPL Price Over Time
 
-Rolling Mean & Std
+  Rolling Mean & Std
 
-ACF & PACF Plots
+  ACF & PACF Plots
 
-Residual Plots
+  Residual Plots
 
-Actual vs Fitted
+  Actual vs Fitted
 
-Forecast with Confidence Intervals
+  Forecast with Confidence Intervals
 
 ### Key Insights
-AAPL prices show strong upward trends — non-stationary in nature.
+ AAPL prices show strong upward trends — non-stationary in nature.
 
-ARIMA(1,1,1) offers a simple yet effective model for short-term forecasting.
+ ARIMA(1,1,1) offers a simple yet effective model for short-term forecasting.
 
-Residuals confirm model adequacy (no autocorrelation).
+ Residuals confirm model adequacy (no autocorrelation).
 
-Future price trends align with historical momentum.
+ Future price trends align with historical momentum.
